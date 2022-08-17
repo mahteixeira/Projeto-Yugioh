@@ -44,23 +44,24 @@ class cartaDAO{
         $stmt->bindValue(3, $model->ataque);
         $stmt->bindValue(4, $model->defesa);
         $stmt->bindValue(5, $model->descricao);
+        $stmt->bindValue(6, $model->id);
 
         $stmt->execute();
     }
 
     public function select()
     {
-        $sql = "SELECT * FROM cartas";
+        $sql = "SELECT * FROM carta";
 
         $stmt = $this->conexao->prepare($sql);
         $stmt->execute();
 
-        return $stmt->fetchAll();
+        return $stmt->fetchAll(PDO::FETCH_CLASS);
     }
 
     public function selectById($id)
     {
-        $sql="SELECT * FROM cartas WHERE id = ?";
+        $sql="SELECT * FROM carta WHERE id = ?";
 
         $stmt = $this-> conexao->prepare($sql);
         $stmt->bindValue(1, $id);
@@ -71,7 +72,7 @@ class cartaDAO{
 
     public function delete (int $id)
     {
-        $sql = "DELETE FROM cartas WHERE id=?";
+        $sql = "DELETE FROM carta WHERE id=?";
 
         $stmt = $this->conexao->prepare($sql);
         $stmt-> bindValue(1, $id);

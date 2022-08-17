@@ -20,7 +20,7 @@ class Controllercarta
         $model = new Modelcarta();
 
         if (isset($_GET['id']))
-          $model = $model->getById($_GET['id']);
+          $model = $model->getById((int) $_GET['id']);
 
         include 'View\carta\criar_carta.php';
     }
@@ -30,15 +30,16 @@ class Controllercarta
         include 'Model/Modelcarta.php';
 
         $carta = new Modelcarta();
-        $carta -> id = $_POST['id'];
-        $carta -> nome = $_POST['nome'];
-        $carta -> nivel = $_POST['nivel'];
-        $carta -> ataque = $_POST['ataque'];
-        $carta -> defesa = $_POST['defesa'];
-        $carta -> descricao = $_POST['descricao'];
-
+        $carta->id = (int)$_POST['idcarta'];
+        $carta->nome = $_POST['nome'];
+        $carta->nivel = (int) $_POST['nivel'];
+        $carta->ataque = (int) $_POST['ataque'];
+        $carta->defesa = (int) $_POST['defesa'];
+        $carta->descricao = $_POST['descricao'];
+        
         $carta->save();
-        header("Location: /cartas");
+        
+        /*header("Location: /cartas");*/
     }
 
 

@@ -31,6 +31,9 @@
                 <a href="/cartas/form?id=<?= $item->id ?>"><?= $item->nome ?></a>
             </td>
 
+            <td><?= $item->nivel ?></td>
+            <td><?= $item->ataque ?></td>
+            <td><?= $item->defesa ?></td>
             <td><?= $item->descricao ?></td>
         </tr>
         <?php endforeach ?>

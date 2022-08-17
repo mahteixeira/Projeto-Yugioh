@@ -8,21 +8,25 @@ class Modelcarta
 
     public function save()
     {
-        include 'DAO/cartaDAO.php';
+        include 'DAO/DAOcarta.php';
+
+        var_dump($this);
+        echo $this->id;
         
         $dao = new cartaDAO();
 
-        if(empty($this->id))
+        if($this->id == null)
         {
            $dao->insert($this);
-       } else {
-        $dao->update($this); 
-       }
+        } else 
+        {
+            $dao->update($this); 
+        }
     }
 
     public function getAllRows()
     {
-        include 'DAO/cartaDAO.php';
+        include 'DAO/DAOcarta.php';
 
         $dao = new cartaDAO();
 
@@ -31,7 +35,7 @@ class Modelcarta
 
     public function getById(int $id)
     {
-        include 'DAO/cartaDAO.php';
+        include 'DAO/DAOcarta.php';
 
         $dao = new cartaDAO();
 
@@ -43,7 +47,7 @@ class Modelcarta
 
     public function delete (int $id)
     {
-        include 'DAO/cartaDAO.php';
+        include 'DAO/DAOcarta.php';
 
         $dao = new cartaDAO();
 
