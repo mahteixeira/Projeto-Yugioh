@@ -18,11 +18,12 @@ switch($uri_parse){
         Controllercarta::save();
         break;
 
+    
     case '/cartas/delete':
         Controllercarta::delete();
         break;
 
     default:
-        include 'View/pginicial.php';
+        echo "error";
         break;
 }

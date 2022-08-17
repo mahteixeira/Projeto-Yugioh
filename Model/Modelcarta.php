@@ -10,8 +10,7 @@ class Modelcarta
     {
         include 'DAO/DAOcarta.php';
 
-        var_dump($this);
-        echo $this->id;
+       
         
         $dao = new cartaDAO();
 

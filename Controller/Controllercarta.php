@@ -30,7 +30,7 @@ class Controllercarta
         include 'Model/Modelcarta.php';
 
         $carta = new Modelcarta();
-        $carta->id = (int)$_POST['idcarta'];
+        $carta->id = (int)$_POST['id'];
         $carta->nome = $_POST['nome'];
         $carta->nivel = (int) $_POST['nivel'];
         $carta->ataque = (int) $_POST['ataque'];
@@ -39,10 +39,13 @@ class Controllercarta
         
         $carta->save();
         
-        /*header("Location: /cartas");*/
+        header("Location: /cartas");
     }
 
-
+    
+    
+    
+    
     public static function delete()
     {
         include 'Model/Modelcarta.php';

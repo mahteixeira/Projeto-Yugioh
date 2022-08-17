@@ -4,22 +4,46 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <?php include "./View/includes/css_config.php" ?>
     <title>Listagem das Cartas</title>
+<style>
+    .box-table{
+        width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+    }
+
+    .table{
+        width: 60%;
+    }
+
+    a { color: red ;
+
+    }
+
+</style>
+
 </head>
 <body>
 
-    <table>
-        <tr>
-            <th></th>
-            <th>Id</th>
-            <th>Nome</th>
-            <th>Nivel</th>
-            <th>Ataque</th>
-            <th>Defesa</th>
-            <th>Descrição</th>
-        </tr>
-        
-        <?php foreach($model->rows as $item): ?>
+<section class="box-table">
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Deletar</th>
+      <th scope="col">Id</th>
+      <th scope="col">Nome</th>
+      <th scope="col">Nível</th>
+      <th scope="col">Ataque</th>
+      <th scope="col">Defesa</th>
+      <th scope="col">Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+  
+  <?php foreach($model->rows as $item): ?>
         <tr>
             <td>
                 <a href="/cartas/delete?id=<?= $item->id ?>">X</a>
@@ -44,8 +68,14 @@
                 <td colspan="5">Nenhum registro de cartas encontrado.</td>
             </tr>
         <?php endif ?>
+  
+  
+ 
+  </tbody>
+</table> 
+</section>
 
-    </table>
-    
+
+        <?php include "./View/includes/js_config.php" ?>
 </body>
 </html>
