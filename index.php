@@ -24,6 +24,6 @@ switch($uri_parse){
         break;
 
     default:
-        echo "error";
+        include "View/pgInicial.php";
         break;
 }

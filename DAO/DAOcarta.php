@@ -18,8 +18,8 @@ class cartaDAO{
     function insert(Modelcarta $model)
     {
         $sql = "INSERT INTO carta 
-                (nome, nivel, ataque, defesa, descricao) 
-                VALUES (?, ?, ?, ?, ?)";
+                (nome, nivel, ataque, defesa, descricao, tipo) 
+                VALUES (?, ?, ?, ?, ?, ?)";
 
         $stmt = $this->conexao->prepare($sql);
 
@@ -28,13 +28,14 @@ class cartaDAO{
         $stmt->bindValue(3, $model->ataque);
         $stmt->bindValue(4, $model->defesa);
         $stmt->bindValue(5, $model->descricao);
+        $stmt->bindValue(6, $model->tipo);
 
         $stmt->execute();
     }
 
     public function update(Modelcarta $model)
     {
-        $sql = "UPDATE carta SET nome= ?, nivel= ?, ataque= ?, defesa= ?, descricao= ?
+        $sql = "UPDATE carta SET nome= ?, nivel= ?, ataque= ?, defesa= ?, descricao= ?, tipo= ?
                 WHERE id= ?";
 
         $stmt = $this->conexao->prepare($sql);
@@ -44,7 +45,9 @@ class cartaDAO{
         $stmt->bindValue(3, $model->ataque);
         $stmt->bindValue(4, $model->defesa);
         $stmt->bindValue(5, $model->descricao);
-        $stmt->bindValue(6, $model->id);
+        $stmt->bindValue(6, $model->tipo);
+        $stmt->bindValue(7, $model->id);
+        
 
         $stmt->execute();
     }

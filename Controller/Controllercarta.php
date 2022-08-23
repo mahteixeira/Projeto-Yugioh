@@ -36,6 +36,7 @@ class Controllercarta
         $carta->ataque = (int) $_POST['ataque'];
         $carta->defesa = (int) $_POST['defesa'];
         $carta->descricao = $_POST['descricao'];
+        $carta->tipo = $_POST['tipo'];
         
         $carta->save();
         

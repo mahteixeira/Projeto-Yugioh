@@ -3,7 +3,7 @@
 class Modelcarta
 {
 
-    public $id, $nome, $nivel, $ataque, $defesa, $descricao;
+    public $id, $tipo, $nome, $nivel, $ataque, $defesa, $descricao;
     public $rows;
 
     public function save()

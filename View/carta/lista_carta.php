@@ -38,6 +38,7 @@
       <th scope="col">Ataque</th>
       <th scope="col">Defesa</th>
       <th scope="col">Descrição</th>
+      <th scope="col">Tipo</th>
     </tr>
   </thead>
   <tbody>
@@ -59,6 +60,7 @@
             <td><?= $item->ataque ?></td>
             <td><?= $item->defesa ?></td>
             <td><?= $item->descricao ?></td>
+            <td><?= $item->tipo ?></td>
         </tr>
         <?php endforeach ?>
 

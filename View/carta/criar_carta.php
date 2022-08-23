@@ -19,7 +19,7 @@
         }
 
         .carta{
-          float:right;
+          float:left;
         }
 
         #fotita{
@@ -28,6 +28,12 @@
           width: 315px;
           position: absolute;
           background-image: url("");
+          margin-left: 52px;
+          margin-top: 112px;
+        }
+
+        #formulario{
+          float: right;
         }
     </style>
 </head>
@@ -37,15 +43,21 @@
         <form method="post" action="/cartas/save" class="row g-3">
           <input id="id" name="id" type="hidden" value="<?= $model->id?>"/>
 
+          <div id="carta">
+          <div id="fotita"></div>
+          <img src="https://www.cardmaker.net/cardmakers/yugioh/createcard.php?name=&cardtype=Monster&subtype=normal&attribute=Light&level=0&trapmagictype=None&rarity=Common&picture=&circulation=&set1=&set2=&type=&carddescription=&atk=&def=&creator=&year=&serial=" id="myimage">
+
+          <div id="formulario"> <br> <br>
           <label for="inputTipo" class="form-label">Tipo</label>
-          <select onchange="document.getElementById('myimage').src = colorUrlMap[this.value];">
-            <option value="Normal">Normal</option>
-            <option value="Efeito">Efeito</option>
-            <option value="Ritual">Ritual</option>
-            <option value="Fusao">Fusão</option>
-            <option value="Sincro">Sincro</option>
-            <option value="Xyz">Xyz</option>
-          </select>
+          <input name="tipo" type="text" placeholder="tipo da carta" list="faixa" value="<?= $model->tipo?>" onchange="document.getElementById('myimage').src = colorUrlMap[this.value];">
+            <datalist id="faixa">
+              <option value="Normal">Normal</option>
+              <option value="Efeito">Efeito</option>
+              <option value="Ritual">Ritual</option>
+              <option value="Fusao">Fusão</option>
+              <option value="Sincro">Sincro</option>
+              <option value="Xyz">Xyz</option>
+            </datalist>
 
           <div class="col-md-12">
             <label for="inputEmail4" class="form-label">Nome</label>
@@ -66,21 +78,17 @@
           <div class="col-md-6">
             <label for="inputCity" class="form-label">Descrição</label>
             <input name="descricao" type="text" value="<?= $model->descricao?>" class="form-control" id="inputCity">
-          </div>
-          <label for="image">Image</label>
-          <input type="file" name="image" id="image"/>
-          <div class="col-12">
+          </div><br>
+          <!--<label for="image">Image</label>
+          <input type="file" name="image" id="image"/> -->
+          <div class="col-12"> <br>
             <button type="submit" class="btn btn-primary">Enviar</button>
+          </div>
           </div>
         </form>
     </section>
 
-    
-
-<div id="carta">
-<div id="fotita"></div>
-<img src="https://www.cardmaker.net/cardmakers/yugioh/createcard.php?name=&cardtype=Monster&subtype=normal&attribute=Light&level=0&trapmagictype=None&rarity=Common&picture=&circulation=&set1=&set2=&type=&carddescription=&atk=&def=&creator=&year=&serial=" id="myimage">
-
+  
     <script>
       var colorUrlMap = {
     "Normal" : "https://www.cardmaker.net/cardmakers/yugioh/createcard.php?name=&cardtype=Monster&subtype=normal&attribute=Light&level=0&trapmagictype=None&rarity=Common&picture=&circulation=&set1=&set2=&type=&carddescription=&atk=&def=&creator=&year=&serial=",
