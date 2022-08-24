@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php include "./View/includes/css_config.php" ?>
+    
     <title>Yu-Gi-Oh</title>
     <style>
         .box-form {
@@ -38,6 +39,7 @@
     </style>
 </head>
 <body>
+
 
     <section class="box-form">
         <form method="post" action="/cartas/save" class="row g-3">
@@ -104,11 +106,9 @@
   "Xyz" : "https://www.cardmaker.net/cardmakers/yugioh/createcard.php?name=&cardtype=Xyz&subtype=normal&attribute=Light&level=0&trapmagictype=None&rarity=Common&picture=&circulation=&set1=&set2=&type=&carddescription=&atk=&def=&creator=&year=&serial="
 };
 
-      if (props.image !== undefined && props.image !== null) {
-    ctx.drawImage(props.image, 0, -(props.image.width * 1.375 - props.image.height) / 2, props.image.width, props.image.width * 1.375, props.x, props.y, props.w, props.h);
-    }
+      
   
     </script>
-    <?php include "./View/includes/js_config.php" ?>
+    <?php include "./View/includes/css_config.php" ?>
 </body>
 </html>
