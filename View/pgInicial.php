@@ -13,13 +13,13 @@
             background-size: cover;
         }
 
-        button{
+        a{
             margin: 15px;
             margin-top: 0px;
             opacity: 75%;
         }
 
-        button:hover{
+        a:hover{
             opacity: 100%;
         }
     </style>
