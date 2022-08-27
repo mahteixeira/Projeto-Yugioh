@@ -73,7 +73,7 @@
 
         #atk {
           position: absolute;
-          bottom: 41px;
+          bottom: -16px;
           left: 600px;
           font-size: 18px;
           color: black;

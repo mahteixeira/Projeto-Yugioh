@@ -9,7 +9,7 @@
     <title>Inicio</title>
     <style>
         body{
-            background-image: url("imagens/fundinho.gif");
+            background-image: url("./View/includes/imagens/fundinho.gif");
             background-size: cover;
         }
 
@@ -26,7 +26,7 @@
 </head>
 <body> <br> <br> <br>
     <center>
-    <img src="imagens/loguinha.png">
+    <img src="./View/includes/imagens/loguinha.png">
     <br> <br> <br> 
 
   
