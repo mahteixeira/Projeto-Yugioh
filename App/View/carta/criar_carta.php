@@ -10,8 +10,8 @@
     <style>
 
         @font-face {
-          font-family: "Titulo";
-          src: url('fontes/Titulo.ttf') format('truetype');
+          font-family: 'Titulo';
+          src: url('includes/fontes/Titulo.ttf') format('truetype') ;
         }
 
         @font-face{
@@ -26,11 +26,12 @@
         }
 
         form {
-            width: 50%;
+            width: 40%;
+            float: right;
         }
 
         #carta{
-          float:left;
+          float:right;
         }
 
         #fotita{
@@ -39,15 +40,18 @@
           width: 315px;
           position: absolute;
           background-image: url("");
+          background-size: cover;
           margin-left: 52px;
           margin-top: 112px;
         }
 
         #formulario{
           float: right;
+          margin: 50px;
+          margin-top:0px;
         }
 
-        #container {
+        #carta {
           display: inline-block;
           position: relative;
             }
@@ -55,7 +59,8 @@
         #titulo {
           position: absolute;
           top: 20px;
-          left: 380px;
+          left: 40px;
+          font-family:"Titulo", Times, serif;
           font-size: 40px;
           color: black;
           text-shadow: 0.0em 0.0em 0.2em white;
@@ -64,20 +69,11 @@
         #desc {
           position: absolute;
           top: 475px;
-          left: 382px;
+          left: 37px;
           line-height:15px;
           font-size: 16px;
           color: black;
           width:342px;
-          }
-
-        #atk {
-          position: absolute;
-          bottom: -16px;
-          left: 600px;
-          font-size: 18px;
-          color: black;
-          width:350px;
           }
 
         #def {
@@ -86,27 +82,49 @@
           right: -88px;
           font-size: 18px;
           color: black;
-          width:350px;
+          width: 2px;
+          
           }
+
+        #atk {
+          position: absolute;
+          bottom: 33.7px;
+          right: 163px;
+          font-size: 18px;
+          color: black;
+          width:2px;
+          }
+
+        #fotita{
+          top: 0px;
+          background: #000;
+          height: 315px;
+          width: 315px;
+          position: absolute;
+        }
     </style>
 </head>
 <body>
 
 
     <section class="box-form">
+        <div id="capture">
+        <figure id="carta">
+              <img src="https://www.cardmaker.net/cardmakers/yugioh/createcard.php?name=&cardtype=Monster&subtype=normal&attribute=Light&level=0&trapmagictype=None&rarity=Common&picture=&circulation=&set1=&set2=&type=&carddescription=&atk=&def=&creator=&year=&serial=" id="myimage">      
+              <div id="fotita"></div>
+              <figcaption id="titulo">Título</figcaption>
+              <figcaption id="desc">Descrição da carta vai aqui</figcaption>  
+              <figcaption id="atk">0</figcapition>
+              <figcaption id="def">0</figcapition>
+              
+        </figure>
+
+        </div>
+
         <form method="post" action="/cartas/save" class="row g-3">
           <input id="id" name="id" type="hidden" value="<?= $model->id?>"/>
 
-          <figure id="carta">
-            <img src="https://www.cardmaker.net/cardmakers/yugioh/createcard.php?name=&cardtype=Monster&subtype=normal&attribute=Light&level=0&trapmagictype=None&rarity=Common&picture=&circulation=&set1=&set2=&type=&carddescription=&atk=&def=&creator=&year=&serial=" id="myimage">
-            
-            <figcaption id="titulo">Título</figcaption>
-            <figcaption id="desc">Descrição da carta vai aqui</figcaption>
-            <figcaption id="atk">0</figcapition>
-            <figcaption id="def">0</figcapition>
-          </figure>
-
-
+          
           <div id="formulario"> <br> <br>
           <label for="inputTipo" class="form-label">Tipo</label>
           <input name="tipo" type="text" placeholder="tipo da carta" list="faixa" value="<?= $model->tipo?>" onchange="document.getElementById('myimage').src = colorUrlMap[this.value];">
@@ -139,16 +157,19 @@
             <label for="inputdesc" class="form-label">Descrição</label>
             <input name="descricao" type="text" value="<?= $model->descricao?>" class="form-control" id="inputdesc">
           </div><br>
-          <!--<label for="image">Image</label>
-          <input type="file" name="image" id="image"/> -->
+          <label for="image">Image</label>
+          <input type="file" name="image" id="image" accept="image/png, image/jpg"/>
           <div class="col-12"> <br>
             <button type="submit" class="btn btn-primary">Enviar</button>
-          </div>
-          </div>
+        </div>
+        </div>
         </form>
+        <button onclick="salvar()" class="btn btn-primary">Download img</button>
+
+
     </section>
 
-  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script>
       var colorUrlMap = {
         "Normal" : "https://www.cardmaker.net/cardmakers/yugioh/createcard.php?name=&cardtype=Monster&subtype=normal&attribute=Light&level=0&trapmagictype=None&rarity=Common&picture=&circulation=&set1=&set2=&type=&carddescription=&atk=&def=&creator=&year=&serial=",
@@ -164,35 +185,51 @@
         "Xyz" : "https://www.cardmaker.net/cardmakers/yugioh/createcard.php?name=&cardtype=Xyz&subtype=normal&attribute=Light&level=0&trapmagictype=None&rarity=Common&picture=&circulation=&set1=&set2=&type=&carddescription=&atk=&def=&creator=&year=&serial="
       };
 
-const input_nome = document.getElementById("inputnome");
-const input_nivel = document.getElementById("inputnivel");
-const input_ataque = document.getElementById("inputataque");
-const input_defesa = document.getElementById("inputdefesa");
-const input_desc = document.getElementById("inputdesc");
+      const input_nome = document.getElementById("inputnome");
+      const input_nivel = document.getElementById("inputnivel");
+      const input_ataque = document.getElementById("inputataque");
+      const input_defesa = document.getElementById("inputdefesa");
+      const input_desc = document.getElementById("inputdesc");
 
-const titulo = document.getElementById("titulo");
-const desc = document.getElementById("desc");
-const atk = document.getElementById("atk");
-const def = document.getElementById("def");
+      const titulo = document.getElementById("titulo");
+      const desc = document.getElementById("desc");
+      const atk = document.getElementById("atk");
+      const def = document.getElementById("def");
 
-input_nome.addEventListener("keyup", (e) => {
-  titulo.innerHTML = e.currentTarget.value;
-});
+      input_nome.addEventListener("keyup", (e) => {
+        titulo.innerHTML = e.currentTarget.value;
+      });
 
-input_ataque.addEventListener("keyup", (e) => {
-  atk.innerHTML = e.currentTarget.value;
-});
+      input_ataque.addEventListener("keyup", (e) => {
+        atk.innerHTML = e.currentTarget.value;
+      });
 
-input_defesa.addEventListener("keyup", (e) => {
-  def.innerHTML = e.currentTarget.value;
-});
+      input_defesa.addEventListener("keyup", (e) => {
+        def.innerHTML = e.currentTarget.value;
+      });
 
-input_desc.addEventListener("keyup", (e) => {
-  desc.innerHTML = e.currentTarget.value;
-});
+      input_desc.addEventListener("keyup", (e) => {
+        desc.innerHTML = e.currentTarget.value;
+      });
       
-  
+      function salvar(){
+        html2canvas(document.querySelector("#capture")).then(canvas => {
+            document.body.appendChild(canvas)
+        });
+      }
+
+      const image_input = document.querySelector("#image");
+
+      image_input.addEventListener("change", function() {
+        const reader = new FileReader();
+        reader.addEventListener("load", () => {
+          const uploaded_image = reader.result;
+          document.querySelector("#fotita").style.backgroundImage = `url(${uploaded_image})`;
+        });
+        reader.readAsDataURL(this.files[0]);
+      });
+
     </script>
-    <?php include "./View/includes/css_config.php" ?>
+    <?php include "./View/includes/js_config.php" ?>
 </body>
 </html>
