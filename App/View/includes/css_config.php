@@ -28,12 +28,10 @@
         }
 
         #fotita{
-          background: #000;
           height: 315px;
           width: 315px;
           position: absolute;
           background-image: url("");
-          background-size: cover;
           margin-left: 52px;
           margin-top: 112px;
         }
@@ -71,8 +69,8 @@
 
         #def {
           position: absolute;
-          bottom: 0px;
-          right: -88px;
+          bottom: 33.7px;
+          right: 76px;
           font-size: 18px;
           color: black;
           width: 2px;
@@ -94,6 +92,12 @@
           height: 315px;
           width: 315px;
           position: absolute;
+        }
+
+        #myimage{
+          background-image: url('https://www.cardmaker.net/cardmakers/yugioh/createcard.php?name=&cardtype=Monster&subtype=normal&attribute=Light&level=0&trapmagictype=None&rarity=Common&picture=&circulation=&set1=&set2=&type=&carddescription=&atk=&def=&creator=&year=&serial=');
+          width:419px;
+          height:610px;
         }
 
 </style>

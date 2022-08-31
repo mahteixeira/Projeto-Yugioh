@@ -12,17 +12,19 @@
 
 
     <section class="box-form">
+        
         <div id="capture">
+        <div id="modelo">
         <figure id="carta">
-              <img src="https://www.cardmaker.net/cardmakers/yugioh/createcard.php?name=&cardtype=Monster&subtype=normal&attribute=Light&level=0&trapmagictype=None&rarity=Common&picture=&circulation=&set1=&set2=&type=&carddescription=&atk=&def=&creator=&year=&serial=" id="myimage">      
+        <div id="myimage"><div>      
               <div id="fotita"></div>
               <figcaption id="titulo">Título</figcaption>
               <figcaption id="desc">Descrição da carta vai aqui</figcaption>  
-              <figcaption id="atk">0</figcapition>
-              <figcaption id="def">0</figcapition>
+              <label id="atk">0</label>
+              <label id="def">0</label>
               
         </figure>
-
+        </div>
         </div>
 
         <form method="post" action="/cartas/save" class="row g-3">
@@ -31,7 +33,7 @@
           
           <div id="formulario"> <br> <br>
           <label for="inputTipo" class="form-label">Tipo</label>
-          <input name="tipo" type="text" placeholder="tipo da carta" list="faixa" value="<?= $model->tipo?>" onchange="document.getElementById('myimage').src = colorUrlMap[this.value];">
+          <input name="tipo" type="text" placeholder="tipo da carta" list="faixa" value="<?= $model->tipo?>" onchange="document.getElementById('myimage').style.backgroundImage = colorUrlMap[this.value];">
             <datalist id="faixa">
               <option value="Normal">Normal</option>
               <option value="Efeito">Efeito</option>
@@ -51,11 +53,11 @@
           </div>
           <div class="col-3">
             <label for="inputataque" class="form-label">Ataque</label>
-            <input name="ataque" type="number" value="<?= $model->ataque?>" class="form-control" id="inputataque">
+            <input name="ataque" min="0" max="9999" type="number" value="<?= $model->ataque?>" class="form-control" id="inputataque">
           </div>
           <div class="col-6">
             <label for="inputdefesa" class="form-label">Defesa</label>
-            <input name="defesa" type="number" value="<?= $model->defesa?>" class="form-control" id="inputdefesa">
+            <input name="defesa" min="0" max="9999" type="number" value="<?= $model->defesa?>" class="form-control" id="inputdefesa">
           </div>
           <div class="col-md-6">
             <label for="inputdesc" class="form-label">Descrição</label>
