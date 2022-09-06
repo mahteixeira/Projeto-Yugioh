@@ -63,7 +63,7 @@
             <label for="inputdesc" class="form-label">Descrição</label>
             <input name="descricao" type="text" value="<?= $model->descricao?>" class="form-control" id="inputdesc">
           </div><br>
-          <label for="image">Image</label>
+          <label for="image">Imagem</label> <br>
           <input type="file" name="image" id="image" accept="image/png, image/jpg"/>
           <div class="col-12"> <br>
             <button type="submit" class="btn btn-primary">Enviar</button>

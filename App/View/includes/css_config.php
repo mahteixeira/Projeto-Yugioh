@@ -2,15 +2,13 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
 <style>
     
-    @font-face {
-          font-family: 'Titulo';
-          src: url('includes/fontes/Titulo.ttf') format('truetype') ;
+   
+        body{
+          background-color: #0d1117;
+          color: #fff; 
+          margin: 50px;
         }
 
-        @font-face{
-          font-family: "Descricao";
-          src: url('fontes/Descricao.ttf') format('truetype');
-        }
         .box-form {
             width: 100%;
             display: flex;
@@ -88,7 +86,7 @@
 
         #fotita{
           top: 0px;
-          background: #000;
+          background: #fff;
           height: 315px;
           width: 315px;
           position: absolute;
@@ -98,6 +96,23 @@
           background-image: url('https://www.cardmaker.net/cardmakers/yugioh/createcard.php?name=&cardtype=Monster&subtype=normal&attribute=Light&level=0&trapmagictype=None&rarity=Common&picture=&circulation=&set1=&set2=&type=&carddescription=&atk=&def=&creator=&year=&serial=');
           width:419px;
           height:610px;
+        }
+
+        input{
+          background-color: #0d1117;
+          color:#fff;
+          border-color: #fff;
+          border-radius: 6px;
+        }
+
+        input[type="text"]{
+          background-color: #0d1117;
+          color:#fff;
+        }
+
+        input[type="number"]{
+          background-color: #0d1117;
+          color:#fff;
         }
 
 </style>
