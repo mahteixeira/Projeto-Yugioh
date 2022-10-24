@@ -7,17 +7,17 @@
 <!-- eu mesmakkk -->
 <script>
       var colorUrlMap = {
-        "Normal" : "url('https://www.cardmaker.net/cardmakers/yugioh/createcard.php?name=&cardtype=Monster&subtype=normal&attribute=Light&level=0&trapmagictype=None&rarity=Common&picture=&circulation=&set1=&set2=&type=&carddescription=&atk=&def=&creator=&year=&serial=')",
+        "Normal" : "url('/View/carta/imagens_carta/fundocarta/cartaNormal.jpg')",
 
-        "Efeito" : "url('https://www.cardmaker.net/cardmakers/yugioh/createcard.php?name=&cardtype=Monster&subtype=effect&attribute=Light&level=0&trapmagictype=None&rarity=Common&picture=&circulation=&set1=&set2=&type=&carddescription=&atk=&def=&creator=&year=&serial=')",
+        "Efeito" : "url('/View/carta/imagens_carta/fundocarta/cartaEfeito.jpg')",
   
-        "Ritual" : "url('https://www.cardmaker.net/cardmakers/yugioh/createcard.php?name=&cardtype=Ritual&subtype=normal&attribute=Light&level=0&trapmagictype=None&rarity=Common&picture=&circulation=&set1=&set2=&type=&carddescription=&atk=&def=&creator=&year=&serial=)",
+        "Ritual" : "url('/View/carta/imagens_carta/fundocarta/cartaRitual.jpg",
   
-        "Fusão" : "url('https://www.cardmaker.net/cardmakers/yugioh/createcard.php?name=&cardtype=Fusion&subtype=normal&attribute=Light&level=0&trapmagictype=None&rarity=Common&picture=&circulation=&set1=&set2=&type=&carddescription=&atk=&def=&creator=&year=&serial=')",
+        "Fusão" : "url('/View/carta/imagens_carta/fundocarta/cartaFusao.jpg",
   
-        "Sincro" : "url('https://www.cardmaker.net/cardmakers/yugioh/createcard.php?name=&cardtype=Synchro&subtype=normal&attribute=Light&level=0&trapmagictype=None&rarity=Common&picture=&circulation=&set1=&set2=&type=&carddescription=&atk=&def=&creator=&year=&serial=')",
+        "Sincro" : "url('/View/carta/imagens_carta/fundocarta/cartaSincro.jpg')",
   
-        "Xyz" : "url('https://www.cardmaker.net/cardmakers/yugioh/createcard.php?name=&cardtype=Xyz&subtype=normal&attribute=Light&level=0&trapmagictype=None&rarity=Common&picture=&circulation=&set1=&set2=&type=&carddescription=&atk=&def=&creator=&year=&serial=')"
+        "Xyz" : "url('/View/carta/imagens_carta/fundocarta/cartaXyz.jpg')"
       };
 
       const input_nome = document.getElementById("inputnome");
@@ -47,11 +47,39 @@
         desc.innerHTML = e.currentTarget.value;
       });
       
-      function salvar(){
-        html2canvas(document.querySelector("#capture")).then(canvas => {
-            document.body.appendChild(canvas)
-        });
-      }
+      
+setUpDownloadPageAsImage();
+
+function setUpDownloadPageAsImage() {
+  document.getElementById("save").addEventListener("click", function() {
+    html2canvas(document.body).then(function(canvas) {
+      console.log(canvas);
+      simulateDownloadImageClick(canvas.toDataURL(), 'file-name.png');
+    });
+  });
+}
+
+function simulateDownloadImageClick(uri, filename) {
+  var link = document.createElement('a');
+  if (typeof link.download !== 'string') {
+    window.open(uri);
+  } else {
+    link.href = uri;
+    link.download = filename;
+    accountForFirefox(clickLink, link);
+  }
+}
+
+function clickLink(link) {
+  link.click();
+}
+
+function accountForFirefox(click) { // wrapper function
+  let link = arguments[1];
+  document.body.appendChild(link);
+  click(link);
+  document.body.removeChild(link);
+}
 
       const image_input = document.querySelector("#image");
 

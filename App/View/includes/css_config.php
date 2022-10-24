@@ -93,7 +93,8 @@
         }
 
         #myimage{
-          background-image: url('https://www.cardmaker.net/cardmakers/yugioh/createcard.php?name=&cardtype=Monster&subtype=normal&attribute=Light&level=0&trapmagictype=None&rarity=Common&picture=&circulation=&set1=&set2=&type=&carddescription=&atk=&def=&creator=&year=&serial=');
+          background-image: url('/View/carta/imagens_carta/fundocarta/cartaNormal.jpg');
+          background-size: cover;
           width:419px;
           height:610px;
         }

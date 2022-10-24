@@ -16,7 +16,7 @@
         <div id="capture">
         <div id="modelo">
         <figure id="carta">
-        <div id="myimage"><div>      
+        <div id="myimage"></div>      
               <div id="fotita"></div>
               <figcaption id="titulo">Título</figcaption>
               <figcaption id="desc">Descrição da carta vai aqui</figcaption>  
@@ -70,7 +70,7 @@
         </div>
         </div>
         </form>
-        <button onclick="salvar()" class="btn btn-primary">Download img</button>
+        <button id="save" class="btn btn-primary">Download img</button>
 
 
     </section>
